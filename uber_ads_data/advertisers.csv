@@ -1,0 +1,11 @@
+advertiser_id,brand,category,primary_platform
+ADV01,KFC,QSR,Eats
+ADV02,McDonald's,QSR,Eats
+ADV03,Domino's,QSR,Eats
+ADV04,NoBroker,Real Estate,Rides
+ADV05,Godrej Properties,Real Estate,Rides
+ADV06,Myntra,Fashion,Both
+ADV07,Pepsi,FMCG,Both
+ADV08,HDFC Bank,Finance,Rides
+ADV09,boAt,Electronics,Both
+ADV10,Mamaearth,D2C,Eats

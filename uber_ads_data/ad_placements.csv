@@ -1,0 +1,8 @@
+placement_id,platform,stage,placement_name,format
+PL01,Eats,Pre-Order,Sponsored Listing,Feed Card
+PL02,Eats,Pre-Order,Offer Banner,Banner
+PL03,Eats,Pre-Order,Store Ad Front,Hero Banner
+PL04,Eats,Post-Order,Post Checkout,Interstitial
+PL05,Rides,Pre-Trip,Pre-Trip Screen,Banner
+PL06,Rides,En Route,En Route Card,Card
+PL07,Rides,Post-Trip,Post-Trip Screen,Interstitial
