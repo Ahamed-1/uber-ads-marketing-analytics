@@ -50,36 +50,6 @@ This project simulates Uber's ad analytics system covering:
 
 ---
 
-## 📁 Repository Structure
-
-```
-uber-ads-analytics/
-│
-├── data/
-│   ├── advertisers.csv
-│   ├── ad_placements.csv
-│   ├── campaigns.csv
-│   ├── campaign_placements.csv
-│   └── daily_performance.csv
-│
-├── sql/
-│   └── uber_ads_sql.sql
-│
-├── python/
-│   └── uber_ads_generator.py
-│
-├── powerbi/
-│   └── uber_theme_fixed.json
-│
-├── assets/
-│   ├── page1_executive_overview.png
-│   └── page2_platform_intelligence.png
-│
-└── README.md
-```
-
----
-
 ## 🔑 Key Insights
 
 - **Post Checkout** (Eats) has the highest CVR — decision moment after ordering
@@ -121,7 +91,6 @@ This creates all 5 CSV files in the `data/` folder.
 ### 3. Open Dashboard
 - Open Power BI Desktop
 - Get Data → Text/CSV → load all files from `data/`
-- Apply theme from `powerbi/uber_theme_fixed.json`
 - Build relationships as per data model above
 
 ---
@@ -136,14 +105,3 @@ ROAS  = DIVIDE([Total Conversions] * 350, [Total Spend])
 ```
 
 ---
-
-## 👤 Author
-
-**Basheer**
-Data Analyst | Chennai
-[LinkedIn](https://linkedin.com/in/your-profile)
-
----
-
-## 📄 License
-MIT License — free to use and adapt with attribution.
