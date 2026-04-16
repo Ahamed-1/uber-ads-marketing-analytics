@@ -1,43 +1,28 @@
--- ============================================================
---  UBER ADS ANALYTICS — SQL LAYER
---  Tool: MySQL 8.0+
---  Author: Data Analyst | Uber Ads Simulation Project
--- ============================================================
-
--- ============================================================
--- SECTION 1: SCHEMA SETUP
--- ============================================================
+--
 
 CREATE DATABASE IF NOT EXISTS uber_ads;
 USE uber_ads;
-
--- Drop in reverse dependency order
 DROP TABLE IF EXISTS daily_performance;
 DROP TABLE IF EXISTS campaign_placements;
 DROP TABLE IF EXISTS campaigns;
 DROP TABLE IF EXISTS ad_placements;
 DROP TABLE IF EXISTS advertisers;
-
--- 1.1 Advertisers
 CREATE TABLE advertisers (
     advertiser_id     VARCHAR(10)  NOT NULL PRIMARY KEY,
-    brand             VARCHAR(100) NOT NULL,
-    category          VARCHAR(50)  NOT NULL,   -- QSR, Real Estate, Fashion, FMCG, Finance, Electronics, D2C
-    primary_platform  VARCHAR(20)  NOT NULL    -- Eats | Rides | Both
+    brand        VARCHAR(100) NOT NULL,
+    category          VARCHAR(50)  NOT NULL,   
 );
 
--- 1.2 Ad Placements
 CREATE TABLE ad_placements (
     placement_id    VARCHAR(10)  NOT NULL PRIMARY KEY,
-    platform        VARCHAR(20)  NOT NULL,   -- Eats | Rides
-    stage           VARCHAR(20)  NOT NULL,   -- Pre-Order | Post-Order | Pre-Trip | En Route | Post-Trip
+    platform    VARCHAR(20)  NOT NULL,   
+    stage        VARCHAR(20)  NOT NULL,   
     placement_name  VARCHAR(100) NOT NULL,
-    format          VARCHAR(50)  NOT NULL    -- Banner | Card | Hero Banner | Interstitial | Feed Card
+    format          VARCHAR(50)  NOT NULL   
 );
 
--- 1.3 Campaigns
 CREATE TABLE campaigns (
-    campaign_id    VARCHAR(80)  NOT NULL PRIMARY KEY,  -- BRAND_STARTDATE_ENDDATE_SEQ
+    campaign_id    VARCHAR(80)  NOT NULL PRIMARY KEY,  
     advertiser_id  VARCHAR(10)  NOT NULL,
     campaign_name  VARCHAR(150) NOT NULL,
     platform       VARCHAR(20)  NOT NULL,
@@ -76,11 +61,6 @@ CREATE TABLE daily_performance (
 
 
 -- ============================================================
--- SECTION 2: LOAD DATA
--- ============================================================
--- Run this after placing CSVs in MySQL's secure file path.
--- To find your path: SHOW VARIABLES LIKE 'secure_file_priv';
--- Then move the CSV files to that directory before loading.
 
 LOAD DATA INFILE '/path/to/advertisers.csv'
 INTO TABLE advertisers
@@ -115,25 +95,6 @@ IGNORE 1 ROWS
 (date, campaign_id, advertiser_id, placement_id, platform, impressions, clicks, conversions, spend_inr);
 
 
--- ============================================================
--- SECTION 3: DERIVED METRIC — CONVERSION VALUE
--- ============================================================
--- Conversion value = estimated revenue a brand earns per conversion.
--- Used to calculate ROAS (Return on Ad Spend) from the advertiser's POV.
--- These are realistic INR estimates per category.
---
--- QSR          → ₹350   (avg food order)
--- Real Estate  → ₹50000 (qualified lead value)
--- Fashion      → ₹800   (avg cart value)
--- FMCG         → ₹200   (avg purchase)
--- Finance      → ₹2000  (credit card / loan lead value)
--- Electronics  → ₹1500  (avg product value)
--- D2C          → ₹600   (avg order value)
-
-
--- ============================================================
--- SECTION 4: ANALYTICAL QUERIES (Power BI Source Views)
--- ============================================================
 
 -- ────────────────────────────────────────────
 -- Q1: PLATFORM SUMMARY
