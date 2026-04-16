@@ -2,7 +2,7 @@
 
 A end-to-end Marketing Analytics project simulating Uber's internal advertising analytics platform — built to demonstrate why brands should invest in Uber Ads.
 
-![Dashboard Preview](assets/page1_executive_overview.png)
+![Dashboard Preview](page1_executive_overview.png)
 
 ---
 
